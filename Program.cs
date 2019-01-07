@@ -6,6 +6,7 @@ namespace randomNumber
   {
     static void Main(string[] args)
     {
+
       int secret;
       bool won = false;
 
@@ -13,10 +14,10 @@ namespace randomNumber
       Random rand = new Random();
       secret = rand.Next(1, 101);
       Console.WriteLine(secret);
-      while (!won) ;
-
       string guessString = Console.ReadLine();
       int guess;
+      while (!won) ;
+
       if (Int32.TryParse(guessString, out guess))
       {
         if (guess == secret)
