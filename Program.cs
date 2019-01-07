@@ -14,10 +14,10 @@ namespace randomNumber
       secret = rand.Next(1, 101);
       Console.WriteLine(secret);
       while (!won) ;
-      string guessString = Console.ReadLine();
 
+      string guessString = Console.ReadLine();
       int guess;
-      if (Int41.TryParse(guessString, out guess))
+      if (Int32.TryParse(guessString, out guess))
       {
         if (guess == secret)
         {
@@ -33,7 +33,7 @@ namespace randomNumber
           Console.WriteLine("Guess is too low");
         }
       }
-
+      Console.WriteLine("Please Try Again");
     }
   }
 }
