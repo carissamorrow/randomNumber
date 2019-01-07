@@ -7,34 +7,45 @@ namespace randomNumber
     static void Main(string[] args)
     {
 
-      int secret;
-      bool won = false;
 
       Console.WriteLine("Let's play the numbers game!");
+      int secret;
       Random rand = new Random();
       secret = rand.Next(1, 101);
       Console.WriteLine(secret);
-      string guessString = Console.ReadLine();
-      int guess;
+      bool won = false;
       while (!won) ;
+      string guessString = Console.ReadLine();
+
+      int guess;
 
       if (Int32.TryParse(guessString, out guess))
       {
         if (guess == secret)
         {
           Console.WriteLine("You Win!!!!");
+          Console.WriteLine("Play again? (y/n)");
+          string play = Console.ReadLine();
+          if (play.ToLower() != "y")
+          {
+            won = false;
+          }
+          else
+          {
+            secret = rand.Next(1, 101);
+            Console.WriteLine("I have a new number take a guess");
+          }
           won = true;
         }
         else if (guess > secret)
         {
-          Console.WriteLine("Guess is too high");
+          Console.WriteLine("Guess is too high, try again:");
         }
         else
         {
-          Console.WriteLine("Guess is too low");
+          Console.WriteLine("Guess is too low, try again:");
         }
       }
-      Console.WriteLine("Please Try Again");
     }
   }
 }
