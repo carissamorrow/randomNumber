@@ -13,7 +13,7 @@ namespace randomNumber
       Random rand = new Random();
       secret = rand.Next(1, 101);
       Console.WriteLine(secret);
-      bool won = false;
+      bool won = true;
       while (!won) ;
       string guessString = Console.ReadLine();
 
